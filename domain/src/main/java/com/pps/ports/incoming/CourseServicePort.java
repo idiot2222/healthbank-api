@@ -10,7 +10,7 @@ public interface CourseServicePort {
 
     CourseDto getCourseById(Long courseId);
 
-    List<CourseDto> getAllCourseList(Long courseId);
+    List<CourseDto> getAllCourseList();
 
     List<CourseDto> getCourseListByUserId(Long userId);
 

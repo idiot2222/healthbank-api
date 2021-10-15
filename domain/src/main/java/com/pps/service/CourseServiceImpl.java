@@ -23,8 +23,8 @@ public class CourseServiceImpl implements CourseServicePort {
     }
 
     @Override
-    public List<CourseDto> getAllCourseList(Long courseId) {
-        return persistencePort.getAllCourseList(courseId);
+    public List<CourseDto> getAllCourseList() {
+        return persistencePort.getAllCourseList();
     }
 
     @Override
