@@ -28,11 +28,6 @@ public class CourseServiceImpl implements CourseServicePort {
     }
 
     @Override
-    public List<CourseDto> getCourseListByUserId(Long userId) {
-        return persistencePort.getCourseListByUserId(userId);
-    }
-
-    @Override
     public List<CourseDto> getCourseListByTrainerId(Long trainerId) {
         return persistencePort.getCourseListByTrainerId(trainerId);
     }
