@@ -9,6 +9,7 @@ public class CourseMapper {
 
     public Course courseDtoToCourse(CourseDto courseDto) {
         return Course.builder()
+                .id(courseDto.getId())
                 .title(courseDto.getTitle())
                 .description(courseDto.getDescription())
                 .limitCount(courseDto.getLimitCount())

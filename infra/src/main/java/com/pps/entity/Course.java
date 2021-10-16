@@ -24,10 +24,10 @@ public class Course {
     private Long trainerId;
 
 
-
     @Builder
-    public Course(String title, String description, int limitCount, Long trainerId) {
-        this.title  = title;
+    public Course(Long id, String title, String description, int limitCount, Long trainerId) {
+        this.id = id;
+        this.title = title;
         this.description = description;
         this.limitCount = limitCount;
         this.trainerId = trainerId;
