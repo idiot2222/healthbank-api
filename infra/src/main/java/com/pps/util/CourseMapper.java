@@ -11,7 +11,7 @@ public class CourseMapper {
         return Course.builder()
                 .title(courseDto.getTitle())
                 .description(courseDto.getDescription())
-                .limit(courseDto.getLimit())
+                .limitCount(courseDto.getLimitCount())
                 .trainerId(courseDto.getTrainerId())
                 .build();
     }

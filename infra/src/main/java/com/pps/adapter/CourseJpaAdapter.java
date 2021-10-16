@@ -5,18 +5,20 @@ import com.pps.entity.Course;
 import com.pps.ports.outgoing.CoursePersistencePort;
 import com.pps.repository.CourseRepository;
 import com.pps.util.CourseMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
 @Service
 public class CourseJpaAdapter implements CoursePersistencePort {
 
-    private final CourseRepository courseRepository;
-    private final CourseMapper courseMapper;
+    @Autowired
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private CourseMapper courseMapper;
 
     @Override
     public CourseDto createCourse(CourseDto courseDto) {

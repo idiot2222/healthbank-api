@@ -19,17 +19,17 @@ public class Course {
 
     private String title;
     private String description;
-    private int limit;
+    private int limitCount;
 
     private Long trainerId;
 
 
 
     @Builder
-    public Course(String title, String description, int limit, Long trainerId) {
+    public Course(String title, String description, int limitCount, Long trainerId) {
         this.title  = title;
         this.description = description;
-        this.limit = limit;
+        this.limitCount = limitCount;
         this.trainerId = trainerId;
     }
 
@@ -38,7 +38,7 @@ public class Course {
         dto.setId(this.id);
         dto.setTitle(this.title);
         dto.setDescription(this.description);
-        dto.setLimit(this.limit);
+        dto.setLimitCount(this.limitCount);
         dto.setTrainerId(this.trainerId);
 
         return dto;

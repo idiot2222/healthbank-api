@@ -11,7 +11,7 @@ public class CourseDto {
 
     private String title;
     private String description;
-    private int limit;
+    private int limitCount;
 
     private Long trainerId;
 
