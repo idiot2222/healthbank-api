@@ -4,10 +4,7 @@ import com.pps.data.RegistrationDto;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @NoArgsConstructor
 @Entity
@@ -18,20 +15,22 @@ public class Registration {
     private Long id;
 
     private Long userId;
-    private Long trainerId;
+
+    @ManyToOne
+    private Course course;
 
 
 
     @Builder
-    public Registration(Long userId, Long trainerId) {
+    public Registration(Long userId, Course course) {
         this.userId = userId;
-        this.trainerId = trainerId;
+        this.course = course;
     }
 
     public RegistrationDto convertToRegistrationDto() {
         RegistrationDto dto = new RegistrationDto();
         dto.setUserId(this.userId);
-        dto.setTrainerId(this.trainerId);
+        dto.setCourseId(this.course.convertToCourseDto().getId());
 
         return dto;
     }

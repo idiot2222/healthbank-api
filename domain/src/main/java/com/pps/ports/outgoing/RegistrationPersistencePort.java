@@ -6,6 +6,7 @@ public interface RegistrationPersistencePort {
 
     RegistrationDto registerUser(RegistrationDto registrationDto);
 
-    void unregisterUser(Long registrationId);
+    void unregisterUser(RegistrationDto registrationDto);
 
+    Object findByRegistrationByCourseIdAndUserId(Long courseId, Long userId);
 }

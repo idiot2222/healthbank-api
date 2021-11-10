@@ -4,8 +4,9 @@ import com.pps.data.RegistrationDto;
 
 public interface RegistrationServicePort {
 
-    RegistrationDto registerUser(RegistrationDto registrationDto);
+    void registerUser(RegistrationDto registrationDto);
 
-    void unregisterUser(Long registrationId);
+    void unregisterUser(RegistrationDto registrationDto);
 
+    Object findByRegistrationByCourseIdAndUserId(Long courseId, Long userId);
 }

@@ -1,17 +1,24 @@
 package com.pps.adapter;
 
 import com.pps.data.RegistrationDto;
+import com.pps.entity.Course;
 import com.pps.entity.Registration;
 import com.pps.ports.outgoing.RegistrationPersistencePort;
+import com.pps.repository.CourseRepository;
 import com.pps.repository.RegistrationRepository;
 import com.pps.util.RegistrationMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@RequiredArgsConstructor
 public class RegistrationJpaAdapter implements RegistrationPersistencePort {
 
-    private final RegistrationRepository registrationRepository;
-    private final RegistrationMapper registrationMapper;
+    @Autowired
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private RegistrationRepository registrationRepository;
+
+    @Autowired
+    private RegistrationMapper registrationMapper;
 
     @Override
     public RegistrationDto registerUser(RegistrationDto registrationDto) {
@@ -23,9 +30,18 @@ public class RegistrationJpaAdapter implements RegistrationPersistencePort {
     }
 
     @Override
-    public void unregisterUser(Long registrationId) {
-        registrationRepository.findById(registrationId)
-                              .orElseThrow(() -> new IllegalArgumentException("Invalid registration id."));
+    public void unregisterUser(RegistrationDto registrationDto) {
+        Registration registration = registrationMapper.registrationDtoToRegistration(registrationDto);
+
+        registrationRepository.delete(registration);
+    }
+
+    @Override
+    public Object findByRegistrationByCourseIdAndUserId(Long courseId, Long userId) {
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid Course id."));
+
+        return registrationRepository.findByCourseAndUserId(course, userId);
     }
 
 }

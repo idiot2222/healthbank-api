@@ -11,12 +11,17 @@ public class RegistrationServiceImpl implements RegistrationServicePort {
     private final RegistrationPersistencePort persistencePort;
 
     @Override
-    public RegistrationDto registerUser(RegistrationDto registrationDto) {
-        return persistencePort.registerUser(registrationDto);
+    public void registerUser(RegistrationDto registrationDto) {
+        persistencePort.registerUser(registrationDto);
     }
 
     @Override
-    public void unregisterUser(Long registrationId) {
-        persistencePort.unregisterUser(registrationId);
+    public void unregisterUser(RegistrationDto registrationDto) {
+        persistencePort.unregisterUser(registrationDto);
+    }
+
+    @Override
+    public Object findByRegistrationByCourseIdAndUserId(Long courseId, Long userId) {
+        return persistencePort.findByRegistrationByCourseIdAndUserId(courseId, userId);
     }
 }
