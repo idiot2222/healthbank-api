@@ -4,7 +4,6 @@ import com.pps.data.RegistrationDto;
 import com.pps.entity.Course;
 import com.pps.entity.Registration;
 import com.pps.repository.CourseRepository;
-import com.pps.repository.RegistrationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

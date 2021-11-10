@@ -31,7 +31,10 @@ public class RegistrationJpaAdapter implements RegistrationPersistencePort {
 
     @Override
     public void unregisterUser(RegistrationDto registrationDto) {
-        Registration registration = registrationMapper.registrationDtoToRegistration(registrationDto);
+        Course course = courseRepository.findById(registrationDto.getCourseId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid course id."));
+
+        Registration registration = registrationRepository.findByCourseAndUserId(course, registrationDto.getUserId());
 
         registrationRepository.delete(registration);
     }
