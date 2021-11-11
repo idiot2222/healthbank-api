@@ -6,8 +6,11 @@ import com.pps.ports.incoming.CourseServicePort;
 import com.pps.ports.incoming.RegistrationServicePort;
 import com.pps.ports.outgoing.CoursePersistencePort;
 import com.pps.ports.outgoing.RegistrationPersistencePort;
+import com.pps.recommend.RecommendUtil;
 import com.pps.service.CourseServiceImpl;
 import com.pps.service.RegistrationServiceImpl;
+import org.apache.mahout.cf.taste.impl.common.FastByIDMap;
+import org.apache.mahout.cf.taste.model.PreferenceArray;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,6 +35,12 @@ public class AppConfig {
     @Bean
     public RegistrationPersistencePort registrationPersistencePort() {
         return new RegistrationJpaAdapter();
+    }
+
+
+    @Bean
+    public RecommendUtil recommendUtil() {
+        return new RecommendUtil();
     }
 
 }

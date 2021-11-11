@@ -33,8 +33,8 @@ public class CourseServiceImpl implements CourseServicePort {
     }
 
     @Override
-    public CourseDto updateCourse(CourseDto courseDto) {
-        return persistencePort.updateCourse(courseDto);
+    public void updateCourse(CourseDto courseDto) {
+        persistencePort.updateCourse(courseDto);
     }
 
     @Override

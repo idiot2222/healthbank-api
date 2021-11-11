@@ -54,8 +54,8 @@ public class CourseJpaAdapter implements CoursePersistencePort {
     }
 
     @Override
-    public CourseDto updateCourse(CourseDto courseDto) {
-        return createCourse(courseDto);
+    public void updateCourse(CourseDto courseDto) {
+        createCourse(courseDto);
     }
 
     @Override

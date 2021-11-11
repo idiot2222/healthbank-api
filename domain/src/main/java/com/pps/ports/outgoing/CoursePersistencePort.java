@@ -14,7 +14,7 @@ public interface CoursePersistencePort {
 
     List<CourseDto> getCourseListByTrainerId(Long trainerId);
 
-    CourseDto updateCourse(CourseDto courseDto);
+    void updateCourse(CourseDto courseDto);
 
     void deleteCourse(Long courseId);
 
